@@ -1,7 +1,7 @@
 import ProfileCard from "@/components/profileCard";
 import React from "react";
 
-export default function About() {
+export default function AboutPage() {
   return (
     <div className="min-h-screen flex justify-center items-center">
       <div className="flex flex-col space-y-4 px-3 md:flex-row md:gap-15">
