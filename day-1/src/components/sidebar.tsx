@@ -22,7 +22,7 @@ function SidebarLink({ href, label }: SidebarItem) {
     <Link
       href={href}
       className={`text-2xl transition-all duration-200 rounded-xl flex items-center justify-center gap-3 ${
-        isActive ? "glass-card" : "hover:bg-[#E6F0EB] hover:text-[#00784E]"
+        isActive ? "glass-card" : "hover:bg-[#e6f0eb58] hover:text-[#0b1b15]"
       }`}
     >
       <span>{label}</span>
