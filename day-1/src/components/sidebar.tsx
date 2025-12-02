@@ -1,12 +1,45 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import Link from "next/link";
+
+interface SidebarItem {
+  href: string;
+  label: string;
+}
+
+const sidebarLinks: SidebarItem[] = [
+  { href: "/dashboard", label: "Dashboard" },
+  { href: "/dashboard/analytics", label: "Analytics" },
+  { href: "/dashboard/settings", label: "Settings" },
+];
+
+function SidebarLink({ href, label }: SidebarItem) {
+  const pathName = usePathname();
+  const isActive = pathName === href;
+
+  return (
+    <Link
+      href={href}
+      className={`text-2xl transition-all duration-200 rounded-xl flex items-center justify-center gap-3 ${
+        isActive ? "glass-card" : "hover:bg-[#E6F0EB] hover:text-[#00784E]"
+      }`}
+    >
+      <span>{label}</span>
+    </Link>
+  );
+}
 
 export default function SideBar() {
   return (
-    <aside className="glass-card fixed w-64 left-0 top-0 min-h-screen pt-30 text-white text-2xl font-semibold">
+    <aside className="glass-card fixed w-64 gap-10 left-0 top-0 min-h-screen pt-30 text-white text-2xl font-semibold">
+      <Link href="/" className="flex justify-center text-gray-800">
+        Home
+      </Link>
       <nav className="flex flex-col gap-4 px-4">
-        <Link href="/dashboard">Dashboard</Link>
-        <Link href="/dashboard/analytics">Analytics</Link>
-        <Link href="/dashboard/settings">Settings</Link>
+        {sidebarLinks.map((link) => (
+          <SidebarLink key={link.href} label={link.label} href={link.href} />
+        ))}
       </nav>
     </aside>
   );
