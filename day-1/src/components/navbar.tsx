@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function NavBar() {
   return (
     <>
-      <header className="w-full h-20 fixed top-0 glass">
+      <header className="w-full h-20 fixed top-0 glass-card z-40">
         <div className="w-full px-2 flex place-content-center">
           <div className="w-full flex justify-center items-center relative">
             {/* Logo--- */}
