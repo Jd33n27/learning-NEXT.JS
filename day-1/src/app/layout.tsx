@@ -29,7 +29,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <NavBarWrapper />
-        <main className="bg-white/20 backdrop-blur-xl">{children}</main>
+        <main className="pt-20">{children}</main>
       </body>
     </html>
   );

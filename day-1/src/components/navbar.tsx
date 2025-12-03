@@ -1,4 +1,35 @@
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+interface NavItem {
+  href: string;
+  label: string;
+}
+
+const navLinks: NavItem[] = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+  { href: "/dashboard", label: "Dashboard" },
+];
+
+function NavLink({ href, label }: NavItem) {
+  const pathname = usePathname();
+  const isActive = pathname === href;
+
+  return (
+    <ul>
+      <Link
+        href={href}
+        className={`text-center px-4 py-1 transition-all duration-200 rounded-xl flex items-center justify-center gap-3 ${
+          isActive ? "glass-card" : "hover:bg-[#e6f0eb38] hover:text-[#0b1b15]"
+        }`}
+      >
+        {label}
+      </Link>
+    </ul>
+  );
+}
 
 export default function NavBar() {
   return (
@@ -13,18 +44,9 @@ export default function NavBar() {
 
             {/* Navigation Links */}
             <div className="flex space-x-4 text-xl text-white py-5">
-              <ul>
-                <Link href="/">Home</Link>
-              </ul>
-              <ul>
-                <Link href="/about">About</Link>
-              </ul>
-              <ul>
-                <Link href="/contact">Contact</Link>
-              </ul>
-              <ul>
-                <Link href="/dashboard">DashBoard</Link>
-              </ul>
+              {navLinks.map((link) => (
+                <NavLink key={link.href} href={link.href} label={link.label} />
+              ))}
             </div>
           </div>
         </div>

@@ -22,7 +22,7 @@ function SidebarLink({ href, label }: SidebarItem) {
     <Link
       href={href}
       className={`text-2xl transition-all duration-200 rounded-xl flex items-center justify-center gap-3 ${
-        isActive ? "glass-card" : "hover:bg-[#e6f0eb58] hover:text-[#0b1b15]"
+        isActive ? "glass-card" : "hover:bg-[#e6f0eb38] hover:text-[#0b1b15]"
       }`}
     >
       <span>{label}</span>
@@ -33,7 +33,10 @@ function SidebarLink({ href, label }: SidebarItem) {
 export default function SideBar() {
   return (
     <aside className="glass-card fixed w-64 gap-10 left-0 top-0 min-h-screen pt-30 text-white text-2xl font-semibold">
-      <Link href="/" className="flex justify-center text-gray-800">
+      <Link
+        href="/"
+        className="rounded-xl m-4 flex justify-center text-gray-800 transition-colors duration-200 ease-in-out hover:bg-[#e6f0eb58]"
+      >
         Home
       </Link>
       <nav className="flex flex-col gap-4 px-4">
