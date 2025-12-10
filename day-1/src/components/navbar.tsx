@@ -18,7 +18,7 @@ function NavLink({ href, label }: NavItem) {
   const isActive = pathname === href;
 
   return (
-    <ul>
+    <li>
       <Link
         href={href}
         className={`text-center px-4 py-1 transition-all duration-200 rounded-xl flex items-center justify-center gap-3 ${
@@ -27,7 +27,7 @@ function NavLink({ href, label }: NavItem) {
       >
         {label}
       </Link>
-    </ul>
+    </li>
   );
 }
 
@@ -44,9 +44,15 @@ export default function NavBar() {
 
             {/* Navigation Links */}
             <div className="flex space-x-4 text-xl text-white py-5">
-              {navLinks.map((link) => (
-                <NavLink key={link.href} href={link.href} label={link.label} />
-              ))}
+              <ul>
+                {navLinks.map((link) => (
+                  <NavLink
+                    key={link.href}
+                    href={link.href}
+                    label={link.label}
+                  />
+                ))}
+              </ul>
             </div>
           </div>
         </div>

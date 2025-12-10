@@ -1,0 +1,12 @@
+.glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(25px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-right-color: rgba(255, 255, 255, 0.2); /* 3D light source effect (top/left brighter) */
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.15),     /* Soft, main shadow */
+    0 10px 20px rgba(0, 0, 0, 0.25),   /* Stronger, distant shadow (lifting the element) */
+    inset 0 0 0 200px rgba(255, 255, 255, 0.05); /*Very subtle inner light layer */
+  border-radius: 12px; 
+}
